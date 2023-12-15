@@ -3,71 +3,36 @@
 
 import React from "react";
 import CalendarPicker from "@/Components/Calendar/Calendar";
+import DBComponents from "./DBComponents/DBComponents";
+import UserTable1 from "@/Components/UserTable/UserTable2";
+import DBChart from "./DBComponents/DBChart";
 
 const Dashboard = () => {
   return (
-    <div className="flex h-screen">
-      {/* Left column (30% width) */}
-      <div className="w-1/3 bg-gray-200 h-100% p-4 rounded-bl-lg">
-        {/* First row (50% height) - Vertical NavBar Icons with Item Count */}
-        <div className="flex h-1/2 flex-col mb-4">
-          <CalendarPicker />
-          <div className="flex flex-row mb-4">
-            {/* Vertical NavBar Icons */}
-            <div className="flex mb-2">
-              {/* Include your vertical navigation bar icons here */}
-              {/* Add more icons as needed */}
-            </div>
-            {/* Item Count */}
-            {/* <div className="flex mb-2">
-              <p className="text-lg font-semibold">"( 5 )"</p>
-            </div> */}
-          </div>
+    <div
+      className="grid grid-rows-2 h-screen bg-white text-gray-700 dark:bg-gray-700"
+      style={{ gridTemplateRows: "30% 50%" }}
+    >
+      <div
+        className="grid grid-cols-3 justify-items-stretch flex-col mt-2 h-[40%]"
+        style={{ gridTemplateColumns: "30% 30% 30%" }}
+      >
+        <div className="justify-self-center">
+          <DBComponents />
         </div>
-
-        {/* Second row (50% height) - Calendar Space */}
-        <div>
-          {/* Include your calendar component or space here */}
-          <div className="h-1/2 bg-white p-4">
-            {/* Calendar component or space */}
-            {/* <p className="text-black">Calendar Space</p> */}
-            <CalendarPicker />
-            {/* Add your calendar component or space content here */}
-          </div>
+        <div className="justify-self-center">
+          <DBChart ChartType="area" />
         </div>
       </div>
-
-      {/* Right column (70% width) */}
-      <div className="w-2/3 bg-gray-300 h-full p-4">
-        {/* First row (50% height) */}
-        <div className="flex mb-4">
-          {/* First column (33% width) */}
-          <div className="w-1/3 p-4 bg-white">
-            {/* Content for the first column of the first row */}
-          </div>
-
-          {/* Second column (33% width) */}
-          <div className="w-1/3 p-4 bg-white ml-4">
-            {/* Content for the second column of the first row */}
-          </div>
-
-          {/* Third column (33% width) */}
-          <div className="w-1/3 p-4 bg-white ml-4">
-            {/* Content for the third column of the first row */}
-          </div>
+      <div
+        className="grid grid-cols-2 bg-white text-gray-700 dark:bg-gray-700"
+        style={{ gridTemplateColumns: "30% 70%" }}
+      >
+        <div className="justify-self-center flex-col mt-2">
+          <CalendarPicker />
         </div>
-
-        {/* Second row (50% height) */}
-        <div className="flex">
-          {/* First column (50% width) */}
-          <div className="w-1/2 p-4 bg-white">
-            {/* Content for the first column of the second row */}
-          </div>
-
-          {/* Second column (50% width) */}
-          <div className="w-1/2 p-4 bg-white ml-4">
-            {/* Content for the second column of the second row */}
-          </div>
+        <div className="justify-self-left flex-col mt-2 pr-12">
+          {/* <UserTable1 /> */}
         </div>
       </div>
     </div>

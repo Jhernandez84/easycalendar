@@ -11,11 +11,16 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "apexcharts": "^3.44.2",
+    "flowbite": "^2.2.0",
+    "flowbite-react": "^0.7.0",
     "next": "^14.0.3-canary.5",
     "react": "^18",
+    "react-apexcharts": "^1.4.1",
     "react-calendar": "^4.6.1",
     "react-datepicker": "^4.21.0",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "vite": "^5.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
