@@ -16,4 +16,18 @@ const CalendarPicker = () => {
   );
 };
 
-export default CalendarPicker;
+function QuickDatePicker() {
+  return (
+    <div>
+      <Datepicker
+        language="es-CL"
+        weekStart={3}
+        labelTodayButton="Hoy"
+        labelClearButton="Limpiar"
+        onSelectedDateChanged={()=> alert('hola')}
+      />
+    </div>
+  );
+}
+
+export { CalendarPicker, QuickDatePicker };

@@ -3,12 +3,12 @@
 import React, { useEffect } from 'react';
 import Chart from 'react-apexcharts';
 
-export const DBChart = ({ChartType}) => {
+export const DBChart = ({ChartType, ChartData}) => {
 
     // Define las opciones del gráfico
     const options = {
       series: [{
-        data: [400, 430, 448, 470, 540, 580, 690, 430, 650, 140],
+        data: ChartData.map(item => parseInt(item.qty, 10)),
       }],
       chart: {
         type: ChartType || bar,
@@ -31,9 +31,7 @@ export const DBChart = ({ChartType}) => {
         curve: 'smooth'
       },
       xaxis: {
-        categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
-          'United States', 'China', 'Germany'
-        ],
+        categories: ChartData.map(item => item.date),
         labels: {
           style: {
             colors: '#ffffff', // Color blanco para el texto del eje
