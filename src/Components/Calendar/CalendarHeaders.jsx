@@ -25,21 +25,21 @@ const CalendarHeaders = () => {
                         Año
                     </button>
                 </div>
-                <div className="inline-flex justify-center rounded-md">
-                    <button
+                <div className="inline-flex justify-center">
+                    {/* <button
                         type="button"
-                        class="px-4 py-2 text-sm font-medium dark:text-gray-400 dark:bg-gray-700 text-gray-900 bg-transparent border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"                    >
+                        class="px-4 py-2 text-sm mt-2 h-[40px] font-medium dark:text-gray-400 dark:bg-gray-700 text-gray-900 bg-transparent border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"                    >
                         Anterior
-                    </button>
-                    <div class="inline-flex justify-end rounded-md shadow-sm dark:text-gray-400 dark:bg-gray-700 m-2">
+                    </button> */}
+                    <div class="inline-flex justify-center rounded-md border border-color-white shadow-sm dark:text-gray-400 dark:bg-gray-700 mt-2 mb-1">
                         <QuickDatePicker />
                     </div>
-                    <button
+                    {/* <button
                         type="button"
-                        class="px-4 py-2 text-sm font-medium dark:text-gray-400 dark:bg-gray-700 text-gray-900 bg-transparent border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
+                        class="px-4 py-2 text-sm mt-2 h-[40px] font-medium dark:text-gray-400 dark:bg-gray-700 text-gray-900 bg-transparent border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
                     >
                         Siguiente
-                    </button>
+                    </button> */}
                 </div>
                 <div className="inline-flex justify-center rounded-md">
                     <button
