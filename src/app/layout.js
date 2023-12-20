@@ -35,16 +35,29 @@ export default function RootLayout({ children }) {
           />
           <ThemeModeScript />
         </header>
-        <main className="h-screen bg-white text-gray-700 dark:bg-gray-700">
-          <div>
-            <NavBar />
-          </div>
-          <div className="flex columns-2 h-[100%]">
-            <div>{User.userProfile == "Admin" ? <SideBarComponent /> : []}</div>
-            <div className="w-[100%]">{children}</div>
-          </div>
-        </main>
+        {User.userProfile == "Admin" ? (
+          <main className="bg-white text-gray-700 dark:bg-gray-700">
+            <div>
+              <NavBar />
+            </div>
+            <div>
+              <div className="flex columns-2">
+                <div className="" ><SideBarComponent /> </div>
+                <div className="h-[95vh] w-[100%]">{children}</div>
+              </div>
+            </div>
+          </main>
+        ) :
+          (
+            <>
+              <main className="h-screen bg-white text-gray-700 dark:bg-gray-700">
+                <div>
+                  <NavBar />
+                </div>
+              </main>
+            </>
+          )}
       </body>
-    </html>
+    </html >
   );
 }

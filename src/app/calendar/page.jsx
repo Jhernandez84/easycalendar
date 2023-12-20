@@ -9,7 +9,7 @@ const Calendar = () => {
   return (
     <div
       // className="grid grid-cols-2 justify-items-center bg-white dark:bg-gray-600"
-      className="justify-items-center bg-white h-screen w-full p-4 rounded-bl-lg dark:bg-gray-600 dark:text-white"
+      className="justify-items-center bg-white w-full p-4 rounded-bl-lg dark:bg-gray-600 dark:text-white"
       // style={{ gridTemplateColumns: "25% 75%" }}
     >
       {/* <div

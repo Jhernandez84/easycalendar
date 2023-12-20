@@ -2,7 +2,8 @@ import React from "react";
 import { Tooltip } from "flowbite-react";
 
 import { useState } from "react";
-import { QuickDatePicker } from "./Calendar";
+import CalendarHeaders from "./CalendarHeaders";
+import * as HiIcons from "react-icons/hi";
 
 const CalendarWeekView = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -44,7 +45,27 @@ const CalendarWeekView = () => {
       },
     },
     {
+      time: "9:30",
+      occupancy: {
+        monday: "true",
+        tuesday: "true",
+        wednesday: "true",
+        thursday: "true",
+        fridays: "false",
+      },
+    },
+    {
       time: "10:00",
+      occupancy: {
+        monday: "true",
+        tuesday: "true",
+        wednesday: "true",
+        thursday: "true",
+        fridays: "false",
+      },
+    },
+    {
+      time: "10:30",
       occupancy: {
         monday: "true",
         tuesday: "true",
@@ -62,7 +83,28 @@ const CalendarWeekView = () => {
       },
     },
     {
+      time: "11:30",
+      occupancy: {
+        monday: "true",
+        tuesday: "true",
+        wednesday: "true",
+        thursday: "true",
+      },
+    },
+    {
       time: "12:00",
+      occupancy: {
+        monday: "true",
+        tuesday: "true",
+        wednesday: "true",
+        thursday: "true",
+        friday: "true",
+        saturday: "true",
+        sunday: "true",
+      },
+    },
+    {
+      time: "12:30",
       occupancy: {
         monday: "true",
         tuesday: "true",
@@ -149,60 +191,12 @@ const CalendarWeekView = () => {
 
   return (
     <>
-      <div className="text-white dark:bg-gray-600 h-screen">
-        <div className="text-white dark:bg-gray-500 h-full w-full rounded-lg p-3">
-          <div className="text-white dark:bg-gray-600 h-24 w-[100%] p-2 rounded-t-lg flex items-center">
-            <div className="dark:bg-gray-700 dark:text-white-400 rounded-lg w-full">
-              <div
-                class="inline-flex justify-end rounded-md shadow-sm dark:text-gray-400 dark:bg-gray-700 m-2"
-                role="group"
-              >
-                <button
-                  type="button"
-                  class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
-                >
-                  Semana
-                </button>
-                <button
-                  type="button"
-                  class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
-                >
-                  Mes
-                </button>
-                <button
-                  type="button"
-                  class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-e-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
-                >
-                  Año
-                </button>
-              </div>
-              <div class="inline-flex justify-end rounded-md shadow-sm dark:text-gray-400 dark:bg-gray-700 m-2">
-                <button
-                  type="button"
-                  class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
-                  onClick={() => alert("Ingresar nueva reserva")}
-                >
-                  + Nueva Reserva
-                </button>
-              </div>
-              <button
-                type="button"
-                class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
-              >
-                Anterior
-              </button>
-              <div class="inline-flex justify-end rounded-md shadow-sm dark:text-gray-400 dark:bg-gray-700 m-3">
-                <QuickDatePicker />
-              </div>
-              <button
-                type="button"
-                class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
-              >
-                Siguiente
-              </button>
-            </div>
-          </div>
-          <div className="text-white dark:bg-gray-500 h-screen w-full rounded-lg">
+      <div className="text-white dark:bg-gray-600">
+        <div className="text-white dark:bg-gray-500 h-[90vh] w-full rounded-lg p-3 overflow-y-auto">
+
+          <CalendarHeaders />
+
+          <div className="text-white dark:bg-gray-500 w-full rounded-lg">
             <div className="h-16 grid grid-cols-8 gap-4 dark:bg-gray-800 h-14 sticky top-0">
               <div className="w-full flex justify-center text-center items-center">
                 Horarios
@@ -236,7 +230,7 @@ const CalendarWeekView = () => {
                             : "cursor-not-allowed bg-red-500 rounded col-span-1 flex justify-center text-center items-center"
                         }
                         onClick={() => alert("Disponible")}
-                        // onMouseEnter={()=> alert('X Disponibles')}
+                      // onMouseEnter={()=> alert('X Disponibles')}
                       >
                         {availability === "true"
                           ? "Espacios disponibles"

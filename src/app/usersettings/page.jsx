@@ -7,10 +7,10 @@ const TestCharts = () => {
   return (
     <>
       <div className="justify-self-center p-4 m-4">
-        <DBChart ChartType="bar" />
+        {/* <DBChart ChartType="bar" /> */}
       </div>
       <div className="justify-self-center p-4 m-4">
-        <DBChart ChartType="area" />
+        {/* <DBChart ChartType="area" /> */}
       </div>
     </>
   );

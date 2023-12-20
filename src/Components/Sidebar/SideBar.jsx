@@ -41,7 +41,7 @@ const SideBarComponent = () => {
         {SideBarMenu.map((item, index) => (
           <div
             key={index}
-            className="bg-white text-gray-800 hover:bg-gray-400 dark:bg-gray-800 flex items-center p-3 transition-opacity duration-500 ease-in-out 
+            className="bg-white text-gray-800 h-[95%] hover:bg-gray-400 dark:bg-gray-800 flex items-center p-3 transition-opacity duration-500 ease-in-out 
             dark:text-white dark:hover:opacity-100 dark:hover:text-gray-100 dark:hover:bg-gray-500 dark:hover:rounded-lg"
           >
             <Link
