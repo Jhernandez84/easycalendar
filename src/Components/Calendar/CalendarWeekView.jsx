@@ -194,7 +194,7 @@ const CalendarWeekView = () => {
       <div className="text-white dark:bg-gray-600">
         <div className="text-white dark:bg-gray-500 h-[90vh] w-full rounded-lg p-3 overflow-y-auto">
 
-          <CalendarHeaders />
+          {/* <CalendarHeaders /> */}
 
           <div className="text-white dark:bg-gray-500 w-full rounded-lg">
             <div className="h-16 grid grid-cols-8 gap-4 dark:bg-gray-800 h-14 sticky top-0">

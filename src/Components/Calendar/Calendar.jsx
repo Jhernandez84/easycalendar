@@ -7,11 +7,12 @@ const CalendarPicker = () => {
     <div>
       <Datepicker
         language="es-CL"
+        showTodayButton={false}
+        showClearButton={false}
         labelTodayButton="Hoy"
         labelClearButton="Limpiar"
         weekStart={3}
-        showPopperArrow={false} // or another relevant prop
-
+        showPopperArrow={true} // or another relevant prop
         inline
       />
     </div>
@@ -23,7 +24,7 @@ function QuickDatePicker() {
   const Consl = (selectedDate) => {
     const day = selectedDate.getDate();
     const weekNumber = getWeekNumber(selectedDate);
-    console.log('clicked' + day + weekNumber)
+    console.log('clicked' + day + ' semana ' + weekNumber)
   }
 
   const getWeekNumber = (date) => {
