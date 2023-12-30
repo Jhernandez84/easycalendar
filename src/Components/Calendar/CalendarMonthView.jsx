@@ -1,5 +1,7 @@
 // components/Calendar.js
 import React from 'react';
+import { useState } from 'react';
+import MyModal from './CalendarModal';
 
 const daysInMonth = (month, year) => {
   return new Date(year, month + 1, 0).getDate();
@@ -54,47 +56,71 @@ const getMonthName = (monthNumber) => {
   return monthDate.toLocaleString('es-CL', { month: 'long' });
 };
 
-const CalendarMonthView = ({ month, year }) => {
+const CalendarMonthView = ({ month, year, Fscreen }) => {
   const calendar = generateCalendar(month, year);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [SelectedDate, setSelectedDate] = useState(false);
+  const [fullScreen, setFullScreen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const dateHandler = (e) => {
+    setSelectedDate(e)
+    console.log('clicked' + e)
+    openModal()
+  }
 
   return (
-    <div className='grid grid-rows dark:bg-gray-700 rounded shadow-xl w-[330px] h-[300px]'>
-      <div className='text-center pt-5'>
-        {/* <p>Atr.</p> */}
-        <h2 >{`${getMonthName(month + 1)} - ${year}`}</h2>
-        {/* <p>Sig.</p> */}
-      </div>
-      <div className='flex justify-center p-2'>
-        <table className='dark:bg-gray-700 rounded shadow-xl self-center'>
-          <thead>
-            <tr className="ligth:white dark:gray-800 h-8 text-gray-500 shadow">
-              <th className="w-12 p-1">Sem</th>
-              <th className="w-8 p-1">Lun</th>
-              <th className="w-8 p-1">Mar</th>
-              <th className="w-8 p-1">Mié</th>
-              <th className="w-8 p-1">Jue</th>
-              <th className="w-8 p-1">Vie</th>
-              <th className="w-8 p-1">Sáb</th>
-              <th className="w-8 p-1">Dom</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Array.from({ length: 6 }).map((_, weekIndex) => (
-              <tr key={weekIndex} className="text-xs">
-                {Array.from({ length: 8 }).map((_, dayIndex) => {
-                  const dataIndex = weekIndex * 7 + dayIndex;
-                  const dayInfo = calendar[dataIndex];
-                  if (dayIndex === 0) {
-                    return <td className='text-xs text-center p-2 text-rose-400' key={dayIndex}>{dayInfo ? dayInfo.week : ''}</td>;
-                  }
-                  return <td className='text-center text-base cursor-pointer dark:hover:bg-gray-600 rounded' key={dayIndex}>{dayInfo ? dayInfo.day : ''}</td>;
-                })}
+    <>
+      {isModalOpen && <MyModal onClose={closeModal} SelectedDate={SelectedDate}/>}
+
+      <div className='dark:bg-gray-700 rounded-md shadow-xl w-[330px] h-[290px]'>
+        <div className='grid grid-rows flex justify-center content-center p-2'>
+          <div className='text-center p-2 dark:bg-gray-800 rounded-t-md'>
+            {/* <p>Atr.</p> */}
+            <h2 className='text-md'>{`${getMonthName(month + 1)} - ${year}`}</h2>
+            {/* <p>Sig.</p> */}
+          </div>
+          <table className='dark:bg-gray-700 rounded shadow-xl self-center'>
+            <thead className=''>
+              <tr className="ligth:white dark:gray-800 h-8 text-gray-500 shadow">
+                <th className="dark:hover:cursor-default w-12 p-1">Sem</th>
+                <th className="dark:hover:cursor-default w-8 p-1">Lun</th>
+                <th className="dark:hover:cursor-default w-8 p-1">Mar</th>
+                <th className="dark:hover:cursor-default w-8 p-1">Mié</th>
+                <th className="dark:hover:cursor-default w-8 p-1">Jue</th>
+                <th className="dark:hover:cursor-default w-8 p-1">Vie</th>
+                <th className="dark:hover:cursor-default w-8 p-1">Sáb</th>
+                <th className="dark:hover:cursor-default w-8 p-1">Dom</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {Array.from({ length: 6 }).map((_, weekIndex) => (
+                <tr key={weekIndex} className="text-xs">
+                  {Array.from({ length: 8 }).map((_, dayIndex) => {
+                    const dataIndex = weekIndex * 7 + dayIndex;
+                    const dayInfo = calendar[dataIndex];
+                    if (dayIndex === 0) {
+                      return <td
+                        className='text-xs text-center dark:hover:cursor-default p-2 text-rose-400' key={dayIndex}>{dayInfo ? dayInfo.week : ''}</td>;
+                    }
+                    return <td
+                      onClick={() => dateHandler(dayInfo.day)}
+                      className='text-center text-base cursor-pointer dark:hover:bg-teal-600 rounded' key={dayIndex}>{dayInfo ? dayInfo.day : ''}</td>;
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
