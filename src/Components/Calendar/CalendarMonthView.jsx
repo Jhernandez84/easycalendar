@@ -49,40 +49,51 @@ const generateCalendar = (month, year) => {
   return calendar;
 };
 
+const getMonthName = (monthNumber) => {
+  const monthDate = new Date(2023, monthNumber - 1, 1); // Month is zero-based
+  return monthDate.toLocaleString('es-CL', { month: 'long' });
+};
+
 const CalendarMonthView = ({ month, year }) => {
   const calendar = generateCalendar(month, year);
 
   return (
-    <div>
-      <h2>{`${month + 1}/${year}`}</h2>
-      <table>
-        <thead>
-          <tr className="dark:bg-gray-800 h-8">
-            <th className="w-8">Nº</th>
-            <th className="w-8">Lun</th>
-            <th className="w-8">Mar</th>
-            <th className="w-8">Mié</th>
-            <th className="w-8">Jue</th>
-            <th className="w-8">Vie</th>
-            <th className="w-8">Sáb</th>
-            <th className="w-8">Dom</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Array.from({ length: 6 }).map((_, weekIndex) => (
-            <tr key={weekIndex}>
-              {Array.from({ length: 8 }).map((_, dayIndex) => {
-                const dataIndex = weekIndex * 7 + dayIndex;
-                const dayInfo = calendar[dataIndex];
-                if (dayIndex === 0) {
-                  return <td key={dayIndex}>{dayInfo ? dayInfo.week : ''}</td>;
-                }
-                return <td key={dayIndex}>{dayInfo ? dayInfo.day : ''}</td>;
-              })}
+    <div className='grid grid-rows dark:bg-gray-700 rounded shadow-xl w-[330px] h-[300px]'>
+      <div className='text-center pt-5'>
+        {/* <p>Atr.</p> */}
+        <h2 >{`${getMonthName(month + 1)} - ${year}`}</h2>
+        {/* <p>Sig.</p> */}
+      </div>
+      <div className='flex justify-center p-2'>
+        <table className='dark:bg-gray-700 rounded shadow-xl self-center'>
+          <thead>
+            <tr className="ligth:white dark:gray-800 h-8 text-gray-500 shadow">
+              <th className="w-12 p-1">Sem</th>
+              <th className="w-8 p-1">Lun</th>
+              <th className="w-8 p-1">Mar</th>
+              <th className="w-8 p-1">Mié</th>
+              <th className="w-8 p-1">Jue</th>
+              <th className="w-8 p-1">Vie</th>
+              <th className="w-8 p-1">Sáb</th>
+              <th className="w-8 p-1">Dom</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {Array.from({ length: 6 }).map((_, weekIndex) => (
+              <tr key={weekIndex} className="text-xs">
+                {Array.from({ length: 8 }).map((_, dayIndex) => {
+                  const dataIndex = weekIndex * 7 + dayIndex;
+                  const dayInfo = calendar[dataIndex];
+                  if (dayIndex === 0) {
+                    return <td className='text-xs text-center p-2 text-rose-400' key={dayIndex}>{dayInfo ? dayInfo.week : ''}</td>;
+                  }
+                  return <td className='text-center text-base cursor-pointer dark:hover:bg-gray-600 rounded' key={dayIndex}>{dayInfo ? dayInfo.day : ''}</td>;
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
