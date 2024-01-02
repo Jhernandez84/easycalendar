@@ -5,6 +5,7 @@ import MyModal from "./CalendarModal";
 import "./styles.css";
 
 const daysInMonth = (month, year) => {
+  const datys = new Date(year, month + 1, 0).getDate();
   return new Date(year, month + 1, 0).getDate();
 };
 
@@ -39,6 +40,7 @@ const generateCalendar = (month, year) => {
     calendar.push({
       day,
       week: getWeek(new Date(year, month, day)),
+      isPrevMonth: false,
     });
   }
 
@@ -52,6 +54,7 @@ const generateCalendar = (month, year) => {
     });
   }
 
+  // console.log(calendar)
   return calendar;
 };
 
@@ -61,17 +64,34 @@ const getMonthName = (monthNumber) => {
 };
 
 const CalendarMonthView = ({ month, year, Fscreen }) => {
+
+  const getCurrentDate = () => {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1; // Months are zero-based, so we add 1
+    const day = currentDate.getDate();
+
+    // Format the date as a string (optional)
+    const formattedDate = `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`;
+
+    return formattedDate;
+  };
+
+  // Example usage
+  const today = getCurrentDate();
+
   const [monthCalendar, setMonthCalendar] = useState(month);
   const [yearCalendar, setYearCalendar] = useState(year);
 
   const calendar = generateCalendar(monthCalendar, yearCalendar);
+
   const [isModalOpen, setModalOpen] = useState(false);
   const [SelectedDate, setSelectedDate] = useState(false);
   const [showMonthSelector, setShowMonthSelector] = useState(false);
   const [calendarView, setCalendarView] = useState("default"); //Default => Calendar, Year=> Year Selector, Month => Month Selector
   const [fullScreen, setFullScreen] = useState(false);
 
-  const initialState = ()=>{
+  const initialState = () => {
     setMonthCalendar(month);
     setYearCalendar(year);
   }
@@ -121,7 +141,7 @@ const CalendarMonthView = ({ month, year, Fscreen }) => {
   return (
     <>
       {isModalOpen && (
-        <MyModal onClose={closeModal} SelectedDate={SelectedDate} SelectedMonth = {monthCalendar} SelectedYear ={yearCalendar}/>
+        <MyModal onClose={closeModal} SelectedDate={SelectedDate} SelectedMonth={monthCalendar} SelectedYear={yearCalendar} />
       )}
       <div className="dark:bg-gray-700 rounded-md shadow-xl w-[330px] h-[315px]">
         <div className="grid grid-rows flex justify-center content-center p-2">
@@ -144,7 +164,7 @@ const CalendarMonthView = ({ month, year, Fscreen }) => {
               {MonthsArray.map((mesNombre, index) => (
                 <p
                   key={mesNombre} // Add a unique key for each element when using map
-                  className="p-2 dark:hover:cursor-pointer dark:hover:bg-teal-600 rounded"
+                  className={`p-2 dark:hover:cursor-pointer dark:hover:bg-teal-600 rounded {${mesNombre}== ${getMonthName()}}`}
                   onClick={() => {
                     setMonthCalendar(index);
                     HandlerCalendarView("month");
@@ -205,15 +225,27 @@ const CalendarMonthView = ({ month, year, Fscreen }) => {
                           </td>
                         );
                       }
-                      return (
-                        <td
-                          onClick={() => dateHandler(dayInfo.day)}
-                          className="text-center text-base cursor-pointer dark:hover:bg-teal-600 rounded"
-                          key={dayIndex}
-                        >
-                          {dayInfo ? dayInfo.day : ""}
-                        </td>
-                      );
+                      if (dayInfo?.isPrevMonth === true || dayInfo?.isNextMonth === true) {
+                        return (
+                          <td
+                            onClick={() => dateHandler(dayInfo.day)}
+                            className="text-center text-base cursor-not-allowed dark:text-gray-500 rounded"
+                            key={dayIndex}
+                          >
+                            {dayInfo ? dayInfo.day : ""}
+                          </td>
+                        );
+                      } else {
+                        return (
+                          <td
+                            onClick={() => dateHandler(dayInfo.day)}
+                            className="text-center text-base cursor-pointer dark:hover:bg-teal-600 rounded"
+                            key={dayIndex}
+                          >
+                            {dayInfo ? dayInfo.day : ""}
+                          </td>
+                        );
+                      }
                     })}
                   </tr>
                 ))}
@@ -222,11 +254,11 @@ const CalendarMonthView = ({ month, year, Fscreen }) => {
           ) : (
             []
           )}
-        <div className="dark:hover:bg-teal-600 dark:hover:cursor-pointer text-center p-1 dark:bg-gray-800 rounded-b-md"
-          onClick={()=> initialState()}
-        >
-          Hoy
-        </div>
+          <div className="dark:hover:bg-teal-600 dark:hover:cursor-pointer text-center p-1 dark:bg-gray-800 rounded-b-md"
+            onClick={() => initialState()}
+          >
+            Hoy
+          </div>
         </div>
       </div>
     </>
