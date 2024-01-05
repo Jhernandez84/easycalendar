@@ -34,7 +34,7 @@ const Calendar = () => {
             className="justify-items-center bg-white w-full p-4 rounded-bl-lg dark:bg-gray-600 dark:text-white"
           // style={{ gridTemplateColumns: "25% 75%" }}
           >
-            <CalendarMonthView month={11} year={2023} />
+            <CalendarMonthView />
 
           </div>
         </>)
@@ -47,7 +47,7 @@ const Calendar = () => {
             className="justify-items-center bg-white w-full p-4 rounded-bl-lg dark:bg-gray-600 dark:text-white"
           // style={{ gridTemplateColumns: "25% 75%" }}
           >
-            <CalendarYearView year={2023} />
+            <CalendarYearView  />
           </div>
         </>)
   }

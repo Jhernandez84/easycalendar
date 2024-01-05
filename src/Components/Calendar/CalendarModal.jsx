@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const MyModal = ({ SelectedDate, SelectedMonth, SelectedYear, onClose }) => {
 
-  const formattedDate = `${SelectedYear}-${String(SelectedMonth + 1).padStart(2, '0')}-${String(SelectedDate).padStart(2, '0')}`;
+  // const formattedDate = `${SelectedYear}-${String(SelectedMonth + 1).padStart(2, '0')}-${String(SelectedDate).padStart(2, '0')}`;
 
   return (
     <>
@@ -33,7 +33,7 @@ const MyModal = ({ SelectedDate, SelectedMonth, SelectedYear, onClose }) => {
           </div>
           <div className="mt-4">
             <h3 className="text-lg font-semibold ">
-              {formattedDate}
+              {SelectedDate}
               </h3>
           </div>
         </div>

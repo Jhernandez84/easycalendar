@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { CalendarPicker } from "@/Components/Calendar/Calendar";
+import CalendarMonthView from "@/Components/Calendar/CalendarMonthView";
 import DBComponents from "./DBComponents/DBComponents";
 import UserTable1 from "@/Components/UserTable/UserTable2";
 import DBChart from "./DBComponents/DBChart";
@@ -16,7 +16,7 @@ const Dashboard = () => {
     { date: "2023-12-05", qty: "2" },
     { date: "2023-12-06", qty: "4" },
     { date: "2023-12-07", qty: "9" },
-    { date: "2023-12-08", qty: "15" },
+    { date: "2023-12-08", qty: "8" },
     { date: "2023-12-09", qty: "4" },
     { date: "2023-12-10", qty: "1" },
     { date: "2023-12-11", qty: "4" },
@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   return (
     <div
-      className="grid grid-rows-2 h-screen bg-white text-gray-700 dark:bg-gray-700"
+      className="grid grid-rows-2 h-full bg-white text-gray-700 dark:bg-gray-600"
       style={{ gridTemplateRows: "30% 50%" }}
     >
       <div
@@ -38,19 +38,32 @@ const Dashboard = () => {
       >
         <div className="justify-self-center">
           <DBComponents />
+          <h1 className="text-white">Tasa de ocupación</h1>
         </div>
         <div className="justify-self-center">
-          <DBChart ChartType="bar" ChartData={AppointedDates} />
+          <DBChart ChartType="line" ChartData={AppointedDates} />
         </div>
+        {/* <div className="justify-self-center">
+          <DBChart ChartType="line" ChartData={AppointedDates} />
+        </div> */}
       </div>
       <div
-        className="grid grid-cols-2 bg-white text-gray-700 dark:bg-gray-700"
+        className="grid grid-cols-2 bg-white text-gray-700 dark:bg-gray-600"
         style={{ gridTemplateColumns: "30% 70%" }}
       >
-        <div className="justify-self-center flex-col mt-2">
-          <CalendarPicker />
+        <div className="justify-self-center dark:text-white flex-col mt-2">
+          <CalendarMonthView AppointedDates={AppointedDates} />
         </div>
-        <div className="justify-self-left flex-col mt-2 pr-12">
+        <div className="justify-self-left flex-col mt-2 pr-12 text-white">
+          <div>
+            <h1>Mi Agenda hoy</h1>
+            <div>
+              <h1>Fecha y horas</h1>
+              <h1>Fecha y horas</h1>
+              <h1>Fecha y horas</h1>
+            </div>
+          </div>
+          <h1>Horas disponibles este mes</h1>
           {/* <UserTable1 /> */}
         </div>
       </div>
