@@ -142,7 +142,7 @@ const CalendarMonthView = ({ month = new Date().getMonth(), year = new Date().ge
       {isModalOpen && (
         <MyModal onClose={closeModal} SelectedDate={SelectedDate} />
       )}
-      <div className="dark:bg-gray-700 rounded-md shadow-xl w-[330px] h-[315px]">
+      <div className="dark:bg-gray-700 rounded-md shadow-xl w-[320px] h-[312px]">
         <div className="grid grid-rows flex justify-center content-center p-2">
           <div className="text-center p-2 dark:bg-gray-800 rounded-t-md">
             <div className="grid grid-cols-2 justify-center content-center space-x-4"

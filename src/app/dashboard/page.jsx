@@ -3,6 +3,7 @@
 
 import React from "react";
 import CalendarMonthView from "@/Components/Calendar/CalendarMonthView";
+import CalendarDayView from "@/Components/Calendar/CalendarDayView";
 import DBComponents from "./DBComponents/DBComponents";
 import UserTable1 from "@/Components/UserTable/UserTable2";
 import DBChart from "./DBComponents/DBChart";
@@ -56,12 +57,8 @@ const Dashboard = () => {
         </div>
         <div className="justify-self-left flex-col mt-2 pr-12 text-white">
           <div>
-            <h1>Mi Agenda hoy</h1>
-            <div>
-              <h1>Fecha y horas</h1>
-              <h1>Fecha y horas</h1>
-              <h1>Fecha y horas</h1>
-            </div>
+            <CalendarDayView />
+
           </div>
           <h1>Horas disponibles este mes</h1>
           {/* <UserTable1 /> */}
