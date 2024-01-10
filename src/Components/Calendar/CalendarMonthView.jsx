@@ -145,18 +145,37 @@ const CalendarMonthView = ({ month = new Date().getMonth(), year = new Date().ge
       <div className="dark:bg-gray-700 rounded-md shadow-xl w-[330px] h-[315px]">
         <div className="grid grid-rows flex justify-center content-center p-2">
           <div className="text-center p-2 dark:bg-gray-800 rounded-t-md">
-            {/* <p>Atr.</p> */}
-            <div className="grid grid-cols-2 justify-center content-center">
-              <h2
-                className="text-md dark:hover:cursor-pointer dark:hover:bg-teal-600 rounded"
-                onClick={() => HandlerCalendarView("month")}
-              >{`${getMonthName(monthCalendar + 1)}`}</h2>
-              <h2
-                className="text-md dark:hover:cursor-pointer dark:hover:bg-teal-600 rounded"
-                onClick={() => HandlerCalendarView("year")}
-              >{`${yearCalendar}`}</h2>
+            <div className="grid grid-cols-2 justify-center content-center space-x-4"
+              style={{ gridTemplateColumns: '50% 50%' }}>
+              <div className="grid grid-cols-3" style={{ gridTemplateColumns: '20% 60% 20%' }}>
+                <div className="text-md dark:hover:cursor-pointer dark:hover:bg-teal-600 rounded"
+                  onClick={() => setMonthCalendar(monthCalendar - 1)}>
+                  <h2>{`<`}</h2>
+                </div>
+                <h2
+                  className="text-md dark:hover:cursor-pointer dark:hover:bg-teal-600 rounded"
+                  onClick={() => HandlerCalendarView("month")}
+                >{`${getMonthName(monthCalendar + 1)}`}</h2>
+                <div className="text-md dark:hover:cursor-pointer dark:hover:bg-teal-600 rounded"
+                  onClick={() => setMonthCalendar(monthCalendar + 1)}>
+                  <h2>{`>`}</h2>
+                </div>
+              </div>
+              <div className="grid grid-cols-3" style={{ gridTemplateColumns: '20% 60% 20%' }}>
+                <div className="text-md dark:hover:cursor-pointer dark:hover:bg-teal-600 rounded"
+                  onClick={() => setYearCalendar(year - 1)}>
+                  <h2>{`<`}</h2>
+                </div>
+                <h2
+                  className="text-md dark:hover:cursor-pointer dark:hover:bg-teal-600 rounded"
+                  onClick={() => HandlerCalendarView("year")}
+                >{`${yearCalendar}`}</h2>
+                <div className="text-md dark:hover:cursor-pointer dark:hover:bg-teal-600 rounded"
+                  onClick={() => setYearCalendar(year + 1)}>
+                  <h2>{`>`}</h2>
+                </div>
+              </div>
             </div>
-            {/* <p>Sig.</p> */}
           </div>
           {calendarView == "month" ? (
             <div className="grid grid-cols-3 justify-center content-center p-4">
