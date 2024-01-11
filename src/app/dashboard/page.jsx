@@ -58,9 +58,8 @@ const Dashboard = () => {
         <div className="justify-self-left flex-col mt-2 pr-12 text-white">
           <div>
             <CalendarDayView />
-
           </div>
-          <h1>Horas disponibles este mes</h1>
+          {/* <h1>Horas disponibles este mes</h1> */}
           {/* <UserTable1 /> */}
         </div>
       </div>

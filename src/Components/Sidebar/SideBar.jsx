@@ -21,7 +21,7 @@ const SideBarComponent = () => {
 
   const SideBarMenu = [
     { SBIcon: HiIcons.HiChartPie, SBMenu: "Dashboard", SBRout: "/dashboard" },
-    { SBIcon: HiIcons.HiLogout, SBMenu: "Otro", SBRout: "/" },
+    { SBIcon: HiIcons.HiHome, SBMenu: "Home", SBRout: "/home" },
     { SBIcon: HiIcons.HiOutlineMail, SBMenu: "Inbox", SBRout: "/" },
     { SBIcon: HiIcons.HiUsers, SBMenu: "Personal", SBRout: "/" },
     { SBIcon: HiIcons.HiCalendar, SBMenu: "Calendar", SBRout: "/calendar" },

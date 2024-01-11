@@ -2,12 +2,13 @@
 
 import React from "react";
 import DBChart from "../dashboard/DBComponents/DBChart";
+import CalendarDayView from "@/Components/Calendar/CalendarDayView";
 
 const TestCharts = () => {
   return (
     <>
       <div className="justify-self-center p-4 m-4">
-        {/* <DBChart ChartType="bar" /> */}
+        <CalendarDayView />
       </div>
       <div className="justify-self-center p-4 m-4">
         {/* <DBChart ChartType="area" /> */}
