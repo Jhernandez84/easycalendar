@@ -10,7 +10,7 @@ const CalendarHeaders = ({ setCalendarView }) => {
 
     return (
         // <div className="text-white dark:bg-gray-600 rounded-t-lg flex items-center flex justify-between ">
-        <div className="grid grid-cols-3 text-white dark:bg-gray-600 rounded-t-lg items-center flex justify-between">
+        <div className="text-white dark:bg-gray-600 rounded-t-lg items-center flex">
             <div className="inline-flex justify-center rounded-md">
                 <button
                     type="button"
@@ -34,23 +34,7 @@ const CalendarHeaders = ({ setCalendarView }) => {
                     Semana
                 </button>
             </div>
-            <div className="inline-flex justify-center">
-                {/* <button
-                        type="button"
-                        class="px-4 py-2 text-sm mt-2 h-[40px] font-medium dark:text-gray-400 dark:bg-gray-700 text-gray-900 bg-transparent border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"                    >
-                        Anterior
-                    </button> */}
-                {/* <div className="inline-flex justify-center rounded-md border border-color-white shadow-sm dark:text-gray-400 dark:bg-gray-700 mt-2 mb-1">
-                    <QuickDatePicker />
-                </div> */}
-                {/* <button
-                        type="button"
-                        class="px-4 py-2 text-sm mt-2 h-[40px] font-medium dark:text-gray-400 dark:bg-gray-700 text-gray-900 bg-transparent border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
-                    >
-                        Siguiente
-                    </button> */}
-            </div>
-            <div className="inline-flex justify-center rounded-md">
+            {/* <div className="inline-flex justify-center rounded-md">
                 <button
                     type="button"
                     className="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
@@ -58,7 +42,7 @@ const CalendarHeaders = ({ setCalendarView }) => {
                 >
                     + Nueva Reserva
                 </button>
-            </div>
+            </div> */}
             {/* </div> */}
         </div>)
 }

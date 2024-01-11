@@ -80,7 +80,7 @@ const CalendarDayView = () => {
     return (
         <>
             <div className="dark:bg-gray-700 rounded-md shadow-xl w-[700px] h-[312px]">
-                <div className="grid grid-rows flex justify-center content-center p-2">
+                <div className="grid grid-rows  flex justify-center content-center p-2">
                     <div className="text-center w-[100] rounded-t-md">
                         {/* <div className="dark:hover:bg-teal-600 dark:hover:cursor-pointer text-center p-1 dark:bg-gray-800 rounded-t-md">
                             Hoy
