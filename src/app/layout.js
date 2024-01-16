@@ -47,17 +47,16 @@ export default function RootLayout({ children }) {
               </div>
             </div>
           </main>
-        ) :
-          (
-            <>
-              <main className="h-screen bg-white text-gray-700 dark:bg-gray-700">
-                <div>
-                  <NavBar />
-                </div>
-              </main>
-            </>
-          )}
+        ) : (
+          <>
+            <main className="h-screen bg-white text-gray-700 dark:bg-gray-700">
+              <div>
+                <NavBar />
+              </div>
+            </main>
+          </>
+        )}
       </body>
-    </html >
+    </html>
   );
 }

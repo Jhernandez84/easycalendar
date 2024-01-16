@@ -7,7 +7,7 @@ import CalendarDayView from "@/Components/Calendar/CalendarDayView";
 const TestCharts = () => {
   return (
     <>
-      <div className="justify-self-center p-4 m-4">
+      <div className="justify-self-center p-4 m-4 text-white">
         <CalendarDayView />
       </div>
       <div className="justify-self-center p-4 m-4">

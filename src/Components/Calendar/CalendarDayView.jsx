@@ -85,9 +85,9 @@ const CalendarDayView = () => {
                         {/* <div className="dark:hover:bg-teal-600 dark:hover:cursor-pointer text-center p-1 dark:bg-gray-800 rounded-t-md">
                             Hoy
                         </div> */}
-                        <div className="justify-center content-center h-[290px] overflow-auto rounded-t-md">
+                        <div className="justify-center content-center h-[290px] overflow-auto rounded-t-md text-white">
                             <table>
-                                <thead className='sticky top-0 dark:bg-gray-600 h-[40px] text-center text-base dark:bg-gray-800'>
+                                <thead className='sticky top-0 dark:bg-gray-600 h-[40px] text-center text-base dark:bg-gray-800 '>
                                     <tr>
                                         <td className='w-[150px]'>Horario</td>
                                         <td className='w-[500px]'>Nombre de la reserva</td>
