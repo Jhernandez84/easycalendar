@@ -42,7 +42,7 @@ const Dashboard = () => {
           <h1 className="text-white">Tasa de ocupación</h1>
         </div>
         <div className="justify-self-center">
-          <DBChart ChartType="line" ChartData={AppointedDates} />
+          <DBChart ChartType="bar" ChartData={AppointedDates} />
         </div>
         {/* <div className="justify-self-center">
           <DBChart ChartType="line" ChartData={AppointedDates} />

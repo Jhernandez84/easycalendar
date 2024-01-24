@@ -34,7 +34,7 @@ const SideBarComponent = () => {
   return (
     <>
       <div
-        className="w-[70px] rounded mt-2 hover:w-56 transition-opacity duration-500 ease-in-out opacity-100 dark:text-white"
+        className="block w-[70px] rounded mt-2 hover:w-56 transition-opacity duration-500 ease-in-out opacity-100 dark:text-white"
         onMouseOver={() => setShowSideBar(true)}
         onMouseLeave={() => setShowSideBar(false)}
       >

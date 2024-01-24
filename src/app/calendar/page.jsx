@@ -15,6 +15,7 @@ const Calendar = () => {
     case 'WeekView':
       return (
         <>
+          <h1 className="text-white">esta parte va a envolver el cuadro completo </h1>
           <CalendarHeaders setCalendarView={setCalendarView} />
           <div
             // className="grid grid-cols-2 justify-items-center bg-white dark:bg-gray-600"
