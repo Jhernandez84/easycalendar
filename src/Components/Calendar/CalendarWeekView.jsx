@@ -4,6 +4,8 @@ import { Tooltip } from "flowbite-react";
 import { useState } from "react";
 import CalendarMonthView from "./CalendarMonthView";
 import CalendarHeaders from "./CalendarHeaders";
+import CalendarWeekSummary from "./CalendarWeekSummary";
+import CalendarWeekSummaryChart from "./CalendarWeekSummaryChart";
 import TableData from "../TableData/TableData";
 import * as HiIcons from "react-icons/hi";
 
@@ -206,9 +208,12 @@ const CalendarWeekView = () => {
               <h1>Vista calendario</h1>
               <CalendarMonthView />
             </div>
-            <div>
+            {/* <div>
               <h1>Resumen día</h1>
-              <CalendarMonthView />
+              <CalendarWeekSummary />
+            </div> */}
+            <div>
+              <CalendarWeekSummaryChart />
             </div>
             <div>
               <h1>Personal</h1>

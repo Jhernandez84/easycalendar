@@ -1,3 +1,5 @@
+"use client";
+
 const people = [
   {
     name: "Leslie Alexander",
@@ -34,29 +36,12 @@ const people = [
     lastSeen: "3h ago",
     lastSeenDateTime: "2023-01-23T13:23Z",
   },
-  {
-    name: "Courtney Henry",
-    email: "courtney.henry@example.com",
-    role: "Designer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-  {
-    name: "Tom Cook",
-    email: "tom.cook@example.com",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: null,
-  },
 ];
 
 export default function TableData() {
   return (
     <>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg dark:bg-gray-700 h-[75%]">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg dark:bg-gray-700 h-[75%] w-[320px]">
         <table>
           {/* <thead>
             <tr className="flex flex-wrap">
@@ -68,13 +53,17 @@ export default function TableData() {
           <tbody class="">
             {people.map((person) => {
               return (
-                <tr key={person.email} className="flex gap-x-6 py-5">
+                <tr
+                  key={person.email}
+                  className="flex gap-x-6 py-5 "
+                >
                   <td className="pl-5 flex">
                     <input
                       className="rounded-full items-center self-center"
                       type="checkbox"
                       name=""
                       id=""
+                      checked="true"
                     />
                   </td>
                   <td className="">
@@ -89,14 +78,15 @@ export default function TableData() {
                       <p className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
                         {person.name}
                       </p>
-                      <p>otra data</p>
+                      <p className="text-xs">Ocupado</p>
                     </div>
                   </td>
                   <td>
                     <div className="min-w-0 flex-auto">
-                      <p className="text-sm font-semibold leading-6 text-gray-900">
+                      <p className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
                         {person.lastSeen}
                       </p>
+                      <p></p>
                     </div>
                   </td>
                 </tr>
