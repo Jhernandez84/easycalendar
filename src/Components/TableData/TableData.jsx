@@ -7,7 +7,7 @@ const people = [
     role: "Co-Founder / CEO",
     imageUrl:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
+    lastSeen: "✅",
     lastSeenDateTime: "2023-01-23T13:23Z",
   },
   {
@@ -16,7 +16,7 @@ const people = [
     role: "Co-Founder / CTO",
     imageUrl:
       "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
+    lastSeen: "✅",
     lastSeenDateTime: "2023-01-23T13:23Z",
   },
   {
@@ -25,7 +25,7 @@ const people = [
     role: "Business Relations",
     imageUrl:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: null,
+    lastSeen: "✅",
   },
   {
     name: "Lindsay Walton",
@@ -33,7 +33,7 @@ const people = [
     role: "Front-end Developer",
     imageUrl:
       "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    lastSeen: "3h ago",
+    lastSeen: "✅",
     lastSeenDateTime: "2023-01-23T13:23Z",
   },
   {
@@ -76,7 +76,7 @@ export default function TableData() {
                     checked="true"
                     // onMouseOver={()=>alert('mouse entered')}
                   />
-                  <p className="text-left">Filtrar</p>
+                  <p className="text-left">Todos</p>
                 </td>
                 <td className="dark:w-[30%] dark:text-right pl-10"> Nombre</td>
                 <td className="dark:w-[35%] dark:text-right pl-20"> Estado </td>
@@ -112,8 +112,8 @@ export default function TableData() {
                       </div>
                     </td>
                     <td>
-                      <div className="min-w-0 flex-auto">
-                        <p className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
+                      <div className="min-w-0 flex-auto justify-center items-center">
+                        <p className="text-sm font-semibold leading-6 text-gray-900 dark:text-white justify-center items-center">
                           {person.lastSeen}
                         </p>
                         <p></p>
